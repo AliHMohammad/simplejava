@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Gennemsnitsberegner {
 
-    private int[] values;
+    private double[] values;
     private Scanner scanner;
 
 
@@ -15,8 +15,8 @@ public class Gennemsnitsberegner {
         app.printWelcome();
         app.getValuesLength();
         app.getValues();
-        int total = app.calculateTotal();
-        double average = app.calculateAverage(total);
+        double total = app.calculateTotal();
+        double average = app.calculateAverage();
 
         System.out.println("Total: " + total);
         System.out.println("Average: " + average);
@@ -32,29 +32,31 @@ public class Gennemsnitsberegner {
     public void getValuesLength() {
         System.out.println("Hvor mange værdier?");
         int antal = Integer.parseInt(scanner.nextLine());
-        this.values = new int[antal];
+        this.values = new double[antal];
     }
 
     public void getValues() {
         System.out.println("Input value(s):");
         for (int i = 0; i < this.values.length; i++) {
-            int value = Integer.valueOf(scanner.nextLine());
+            double value = Double.parseDouble(scanner.nextLine());
             this.values[i] = value;
         }
 
     }
 
-    public int calculateTotal() {
-        int sum = 0;
-        for (int value :
+    public double calculateTotal() {
+        double sum = 0;
+
+        for (double value :
              this.values) {
             sum += value;
         }
+
         return sum;
     }
 
-    public double calculateAverage(int total) {
-        return (double) total / this.values.length;
+    public double calculateAverage() {
+        return (double) calculateTotal() / this.values.length;
     }
 
 
