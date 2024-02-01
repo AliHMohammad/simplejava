@@ -1,4 +1,4 @@
-package Gennemsnitsberegner;
+package Del_1.Gennemsnitsberegner;
 
 import java.util.Scanner;
 

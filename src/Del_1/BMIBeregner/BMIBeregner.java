@@ -1,8 +1,8 @@
-package BMIBeregnerTwo;
+package Del_1.BMIBeregner;
 
 import java.util.Scanner;
 
-public class BMIBeregnerTwo {
+public class BMIBeregner {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -20,24 +20,9 @@ public class BMIBeregnerTwo {
         double BMI = calculateBMI(weight, height);
 
         System.out.println("Du har en BMI på " + BMI);
-        printCategory(BMI);
     }
 
     public static double calculateBMI(double weight, double height) {
         return weight / (height * height);
-    }
-
-    public static void printCategory(double BMI) {
-        System.out.print("Du er ");
-
-        if (BMI < 18.5) {
-            System.out.print("undervægtig");
-        } else if (BMI >= 18.5 && BMI < 25) {
-            System.out.print("normalvægtig");
-        } else if (BMI >= 25 && BMI < 30) {
-            System.out.print("overvægtig");
-        } else {
-            System.out.print("svært overvægtig");
-        }
     }
 }

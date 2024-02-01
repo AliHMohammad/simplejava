@@ -1,4 +1,4 @@
-package Strings;
+package Del_1.Strings;
 
 import java.util.Arrays;
 

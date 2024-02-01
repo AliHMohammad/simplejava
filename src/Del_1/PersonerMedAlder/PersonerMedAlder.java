@@ -1,4 +1,4 @@
-package PersonerMedAlder;
+package Del_1.PersonerMedAlder;
 
 import java.util.Scanner;
 

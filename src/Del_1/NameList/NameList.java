@@ -1,4 +1,4 @@
-package NameList;
+package Del_1.NameList;
 
 public class NameList {
 

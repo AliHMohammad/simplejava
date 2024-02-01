@@ -1,4 +1,4 @@
-package TommeBeregner;
+package Del_1.TommeBeregner;
 
 import java.util.Scanner;
 
