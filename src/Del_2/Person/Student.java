@@ -49,4 +49,10 @@ public class Student extends Person {
     public void setSchoolYear(int schoolYear) {
         this.schoolYear = schoolYear;
     }
+
+
+    @Override
+    public String toString() {
+        return getFullName() + " is in year: " + this.schoolYear;
+    }
 }

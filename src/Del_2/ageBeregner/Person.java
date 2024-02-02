@@ -1,19 +1,26 @@
 package Del_2.ageBeregner;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class Person {
 
     private String firstName;
     private String lastName;
     private String middleName;
-    private final LocalDate dateOfBirth;
+    private LocalDate dateOfBirth;
 
     public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Person(String firstName, String middleName, String lastName, String dateOfBirth) {
+        this(firstName, middleName, lastName, LocalDate.now());
+        setDateOfBirth(dateOfBirth);
     }
 
     public Person() {
@@ -28,6 +35,7 @@ public class Person {
         setFullName(fullName);
         this.dateOfBirth = LocalDate.now();
     }
+
 
     public Person(String firstName, String middleName, String lastName) {
         this(firstName, middleName, lastName, LocalDate.now());
@@ -66,7 +74,19 @@ public class Person {
     }
 
     public int getAge() {
-        return 1;
+        LocalDate now = LocalDate.now();
+        return (int) ChronoUnit.YEARS.between(this.dateOfBirth, now);
+    }
+
+    public boolean hasBirthday() {
+        LocalDate now = LocalDate.now();
+        return Period.between(this.dateOfBirth, now).withYears(0).isZero();
+    }
+
+    private void setDateOfBirth(String dateOfBirth) {
+        String[] birthday = dateOfBirth.split("-");
+        this.dateOfBirth = LocalDate.of(Integer.valueOf(birthday[0]), Integer.valueOf(birthday[1]), Integer.valueOf(birthday[2]));
+        System.out.println(this.dateOfBirth);
     }
 
     public String getFullName() {

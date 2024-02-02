@@ -93,9 +93,4 @@ public class Person {
         return getFullName() + " is " + this.age + " years old.";
     }
 
-    public void makeHarry() {
-        firstName = "Harry";
-        lastName = "Potter";
-        age = 13;
-    }
 }
