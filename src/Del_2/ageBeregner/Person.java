@@ -1,4 +1,5 @@
-package Del_2.Person;
+package Del_2.ageBeregner;
+
 
 public class Person {
 
@@ -23,8 +24,7 @@ public class Person {
     }
 
     public Person(String fullName) {
-        this.setFullName(fullName);
-        this.age = 0;
+        this(fullName.substring(0, fullName.indexOf(" ")), fullName.indexOf(" ") == fullName.lastIndexOf(" ") ? null : fullName.substring(fullName.indexOf(" ")+1, fullName.lastIndexOf(" ")), fullName.substring(fullName.lastIndexOf(" ")+1), 0);
     }
 
     public Person(String firstName, String middleName, String lastName) {
@@ -35,8 +35,8 @@ public class Person {
         this(firstName, null, null, age);
     }
 
-    public Person(Person person) {
-        this(person.firstName, person.middleName, person.lastName, person.age);
+    public Person(Del_2.Person.Person person) {
+        this(person.getFirstName(), person.getMiddleName(), person.getLastName(), person.getAge());
     }
 
     public String getFirstName() {
@@ -65,10 +65,6 @@ public class Person {
 
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getFullName() {

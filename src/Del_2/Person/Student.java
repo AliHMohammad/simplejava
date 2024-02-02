@@ -9,10 +9,12 @@ public class Student extends Person {
 
     public Student(String firstName, String lastName) {
         super(firstName, lastName);
+        this.schoolYear = 0;
     }
 
     public Student(String firstName, String middleName, String lastName) {
         super(firstName, middleName, lastName);
+        this.schoolYear = 0;
     }
 
     public Student(String fullName, int schoolYear) {
@@ -39,10 +41,6 @@ public class Student extends Person {
         super();
         this.schoolYear = 0;
     }
-
-
-
-
 
     public int getSchoolYear() {
         return schoolYear;
