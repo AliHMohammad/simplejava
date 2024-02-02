@@ -1,42 +1,44 @@
 package Del_2.ageBeregner;
 
+import java.time.*;
 
 public class Person {
 
     private String firstName;
     private String lastName;
     private String middleName;
-    private int age;
+    private final LocalDate dateOfBirth;
 
-    public Person(String firstName, String middleName, String lastName, int age) {
+    public Person(String firstName, String middleName, String lastName, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
-        this.age = age;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Person() {
-        this(null, null, null, 0);
+        this(null, null, null, LocalDate.now());
     }
 
     public Person(String firstName, String lastName) {
-        this(firstName, null, lastName, 0);
+        this(firstName, null, lastName, LocalDate.now());
     }
 
     public Person(String fullName) {
-        this(fullName.substring(0, fullName.indexOf(" ")), fullName.indexOf(" ") == fullName.lastIndexOf(" ") ? null : fullName.substring(fullName.indexOf(" ")+1, fullName.lastIndexOf(" ")), fullName.substring(fullName.lastIndexOf(" ")+1), 0);
+        setFullName(fullName);
+        this.dateOfBirth = LocalDate.now();
     }
 
     public Person(String firstName, String middleName, String lastName) {
-        this(firstName, middleName, lastName, 0);
+        this(firstName, middleName, lastName, LocalDate.now());
     }
 
-    public Person(String firstName, int age) {
-        this(firstName, null, null, age);
+    public Person(String firstName, LocalDate dateOfBirth) {
+        this(firstName, null, null, dateOfBirth);
     }
 
-    public Person(Del_2.Person.Person person) {
-        this(person.getFirstName(), person.getMiddleName(), person.getLastName(), person.getAge());
+    public Person(Person person) {
+        this(person.firstName, person.middleName, person.lastName, person.dateOfBirth);
     }
 
     public String getFirstName() {
@@ -64,7 +66,7 @@ public class Person {
     }
 
     public int getAge() {
-        return age;
+        return 1;
     }
 
     public String getFullName() {
@@ -86,12 +88,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return getFullName() + " is " + this.age + " years old.";
+        return getFullName() + " is " + this.getAge() + " years old.";
     }
 
-    public void makeHarry() {
-        firstName = "Harry";
-        lastName = "Potter";
-        age = 13;
-    }
 }
